@@ -17,6 +17,10 @@ type User struct {
 
 type fooHandler struct{}
 
+func indexHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, "Hello Golang World!!")
+}
+
 func (f *fooHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	user := new(User)
 	// request body를 인자로 넣어줌  r.body는 ioReader객체 타입을 갖고있어서 NewDecoder의 ioReader인자로 넣을 수 있다.
@@ -54,9 +58,7 @@ func NewHttpHandler() http.Handler {
 	mux := http.NewServeMux()
 
 	// func으로 handler를 직접 구현
-	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprint(w, "Hello Golang World!!")
-	})
+	mux.HandleFunc("/", indexHandler)
 
 	// mux : 경로 별로 handler를 만드는것 => mux
 	mux.HandleFunc("/bar", barHandler)

@@ -7,8 +7,11 @@ if run main.go {
 }
 
 if init develop {
-    go mode init && go mode verify && go run main.go
+    go mod init && go mod verify && go run main.go
 }
 
+dependency(
+    "go install github.com/smartystreets/goconvey"
+)
 
 ```
