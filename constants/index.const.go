@@ -1,3 +1,3 @@
 package constants
 
-const URL = ""
+const URL = "asdasdasdadas"
