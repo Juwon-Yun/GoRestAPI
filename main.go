@@ -1,23 +1,17 @@
 package main
 
 import (
+	dataBase "github.com/Juwon-Yun/goRest/database"
+	"github.com/Juwon-Yun/goRest/routes"
 	"github.com/gofiber/fiber/v2"
-	"gorm.io/driver/mysql"
-	"gorm.io/gorm"
 )
 
 func main() {
-	_, err := gorm.Open(mysql.Open(), &gorm.Config{})
-
-	if err != nil {
-		panic("could not connect to the dataBase")
-	}
+	dataBase.Connect()
 
 	app := fiber.New()
 
-	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("Hello fiber World!")
-	})
+	routes.Setup(app)
 
 	app.Listen(":4000")
 }
