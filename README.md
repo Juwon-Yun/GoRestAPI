@@ -2,7 +2,13 @@
 
 ```go
 
-in root dir
+if run main.go {
+    go run main.go && GO111MODULE=off go run main.go
+}
 
-go run main.go && GO111MODULE=off go run main.go
+if init develop {
+    go mode init && go mode verify && go run main.go
+}
+
+
 ```
