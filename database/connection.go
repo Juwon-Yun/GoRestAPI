@@ -13,4 +13,7 @@ func Connect() {
 	if err != nil {
 		panic("could not connect to the dataBase")
 	}
+
+	// user table autoMigrate 테이블 자동 생성
+	// connection.AutoMigrate(&model.User)
 }

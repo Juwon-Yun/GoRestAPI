@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"github.com/Juwon-Yun/goRest/controllers"
+	controllers "github.com/Juwon-Yun/goRest/controller"
 	"github.com/gofiber/fiber/v2"
 )
 
